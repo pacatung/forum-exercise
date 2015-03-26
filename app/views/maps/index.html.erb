@@ -1,0 +1,18 @@
+<h2>Maps index html</h2>
+
+
+<ul>
+<li>
+<% @maps.each do |map| %>
+
+<%= debug (map) %>
+
+<%= map.name %>
+<%= map.country %>
+<%= map.time %>
+
+<% end %>
+</li>
+</ul>
+
+<%= link_to 'New Map', new_map_path, :method => :get %>
