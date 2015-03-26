@@ -12,7 +12,7 @@ class MapsController < ApplicationController
   end
 
   def create
-    @map = Map.new(params.require(:map).permit(:name, :country, :time, :money, :days, :description))
+    @map = Map.new(map_params)
     @map.save
 
     redirect_to maps_path, :method => :get
@@ -35,5 +35,8 @@ class MapsController < ApplicationController
   end
 
 private
+def map_params
+  params.require(:map).permit(:name, :country, :time, :money, :days, :description)
+end
 
 end
