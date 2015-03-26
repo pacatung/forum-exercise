@@ -19,7 +19,9 @@ class MapsController < ApplicationController
   end
 
   def show
+    @map = Map.find(params[:id])
 
+    # redirect_to :url => map_path, :method => :get
   end
 
   def edit

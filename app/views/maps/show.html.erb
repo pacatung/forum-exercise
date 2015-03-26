@@ -1,0 +1,19 @@
+<h1>show html  <%=@map.name%></h1>
+
+
+<%= 'name= ' + @map.name %>
+<br>
+<%= 'country= ' +  @map.country %>
+<br>
+<%= 'time= ' +  @map.time %>
+<br>
+<%#= "money= " +  @map.money %>
+<br>
+<%#= "days=  "+  @map.days %>
+<br>
+<%= "description= " +  simple_format(@map.description) %>
+<br>
+<br>
+<br>
+<br>
+<%= link_to 'back to index.html.erb', maps_path %>
