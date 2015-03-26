@@ -1,3 +1,4 @@
+#rails g controller map
 class MapsController < ApplicationController
 
 
@@ -11,7 +12,10 @@ class MapsController < ApplicationController
   end
 
   def create
+    @map = Map.new(params.require(:map).permit(:name, :country, :time, :money, :days, :description))
+    @map.save
 
+    redirect_to maps_path, :method => :get
   end
 
   def show
@@ -30,5 +34,6 @@ class MapsController < ApplicationController
 
   end
 
+private
 
 end
