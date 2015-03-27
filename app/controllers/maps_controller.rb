@@ -6,7 +6,7 @@ class MapsController < ApplicationController
 
   def index
     @maps = Map.all
-
+    @maps = Map.page(params[:page]).per(2)
   end
 
   def new

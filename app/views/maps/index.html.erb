@@ -1,5 +1,6 @@
 <h2>Maps index html</h2>
 
+<%= paginate @maps %>
 
 <ul>
 <li>
@@ -13,7 +14,7 @@
 
 <%= link_to 'show',map_path(map), :method => :get %>
 <%= link_to 'edit', edit_map_path(map), :method => :get %>
-<%= link_to 'delete', map_path(map), :method => :delete %>
+<%= link_to 'delete', map_path(map), :data =>{:confirm=>"r u sure?"}, :data =>{:confirm=>'r u sure again?'}, :method => :delete %>
 
 <% end %>
 </li>
