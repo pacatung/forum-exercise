@@ -12,8 +12,8 @@
 <%= 'Time= '+map.time %>
 
 <%= link_to 'show',map_path(map), :method => :get %>
-<%= link_to 'edit', edit_map_path(:id), :method => :get %>
-<%= link_to 'delete', map_path(:id), :method => :delete %>
+<%= link_to 'edit', edit_map_path(map), :method => :get %>
+<%= link_to 'delete', map_path(map), :method => :delete %>
 
 <% end %>
 </li>

@@ -25,15 +25,21 @@ class MapsController < ApplicationController
   end
 
   def edit
-
+    @map = Map.find(params[:id])
   end
 
   def update
+    @map = Map.find(params[:id])
+    @map.update(map_params)
 
+    redirect_to map_path, :method => :get
   end
 
   def destroy
+    @map = Map.find(params[:id])
+    @map.destroy
 
+    redirect_to maps_path, :method => :get
   end
 
 private

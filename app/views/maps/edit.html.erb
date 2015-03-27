@@ -1,0 +1,29 @@
+<h1>edit html</h1>
+
+<%= form_for @map, :url => map_path(@map), :method=>:patch do |map| %>
+
+<%= map.label :name, "Name : " %>
+<%= map.text_field :name %>
+<br>
+<%= map.label :country, "Country : " %>
+<%= map.text_field :country %>
+<br>
+<%= map.label :time, "Time : " %>
+<%= map.text_field :time %>
+<br>
+<%= map.label :money, "Money : " %>
+<%= map.text_field :money %>
+<br>
+<%= map.label :days, "Days : " %>
+<%= map.text_field :days %>
+<br>
+<%= map.label :description, "Description : " %>
+<%= map.text_field :description %>
+<br>
+<br>
+<br>
+
+<%= map.submit "update" %>
+<% end %>
+
+<br>
