@@ -1,5 +1,5 @@
 class Map < ActiveRecord::Base
 
-  # vaildates_presence_of :name, :country, :time
+     validates_presence_of :name, :country, :time
 
 end
