@@ -25,6 +25,7 @@ class MapsController < ApplicationController
     end
 
     #redirect_to maps_path, :method => :get
+    flash[:notice] = "Map was successfully created"
   end
 
   def show
@@ -49,6 +50,7 @@ class MapsController < ApplicationController
     end
 
     #redirect_to map_path, :method => :get
+    flash[:notice] = "Map was successfully updated"
   end
 
   def destroy
@@ -56,6 +58,7 @@ class MapsController < ApplicationController
     @map.destroy
 
     redirect_to maps_path, :method => :get
+    flash[:alert] = "Map was successfully deleted"
   end
 
 private
