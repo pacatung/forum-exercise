@@ -16,9 +16,15 @@ class MapsController < ApplicationController
 
   def create
     @map = Map.new(map_params)
-    @map.save
 
-    redirect_to maps_path, :method => :get
+#    @map.save
+    if @map.save
+      redirect_to maps_path, :method =>:get
+    else
+      render :action => :new
+    end
+
+    #redirect_to maps_path, :method => :get
   end
 
   def show
@@ -34,9 +40,15 @@ class MapsController < ApplicationController
 
   def update
     # @map = Map.find(params[:id])
-    @map.update(map_params)
 
-    redirect_to map_path, :method => :get
+    #@map.update(map_params)
+    if @map.update(map_params)
+      redirect_to map_path, :method =>:get
+    else
+      render :action => :edit
+    end
+
+    #redirect_to map_path, :method => :get
   end
 
   def destroy
