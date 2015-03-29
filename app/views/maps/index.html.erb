@@ -6,7 +6,9 @@
 <li>
 <% @maps.each do |map| %>
 
-<%= debug (map) %>
+<div class="debug">
+  <%= debug (map) %>
+</div>
 
 <%= 'Name= ' +map.name %>
 <%= 'Country= '+map.country %>
@@ -14,7 +16,7 @@
 
 <%= link_to 'show',map_path(map), :method => :get %>
 <%= link_to 'edit', edit_map_path(map), :method => :get %>
-<%= link_to 'delete', map_path(map), :data =>{:confirm=>"r u sure?"}, :data =>{:confirm=>'r u sure again?'}, :method => :delete %>
+<%= link_to 'delete', map_path(map), :data =>{:confirm=>"r u sure?"}, :method => :delete %>
 
 <% end %>
 </li>

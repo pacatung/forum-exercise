@@ -1,4 +1,4 @@
-#rails g controller map
+#rails g controller maps
 class MapsController < ApplicationController
 
   before_action :set_map, :only => [:show, :edit, :update, :destroy]
@@ -6,6 +6,7 @@ class MapsController < ApplicationController
 
   def index
     @maps = Map.all
+    #gem kaminari
     @maps = Map.page(params[:page]).per(2)
   end
 
@@ -21,6 +22,7 @@ class MapsController < ApplicationController
   end
 
   def show
+    @page_title = @map.name
     # @map = Map.find(params[:id])
 
     # redirect_to :url => map_path, :method => :get
@@ -45,12 +47,12 @@ class MapsController < ApplicationController
   end
 
 private
-def map_params
-  params.require(:map).permit(:name, :country, :time, :money, :days, :description)
-end
+  def map_params
+    params.require(:map).permit(:name, :country, :time, :money, :days, :description)
+  end
 
-def set_map
-  @map = Map.find(params[:id])
-end
+  def set_map
+    @map = Map.find(params[:id])
+  end
 
 end
