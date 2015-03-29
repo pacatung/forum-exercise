@@ -1,3 +1,14 @@
+
+<% if @map.errors.any? %>
+      <ul>
+      <% @map.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+<% end %>
+<br>
+<br>
+<br>
     <%= f.label :name, "Name" %>
     <%= f.text_field :name %>
     <br>
