@@ -1,25 +1,31 @@
 <h2>Maps index html</h2>
 
-<%= paginate @maps %>
 
-<ul>
-<li>
+<table>
+<tr>
+  <th>Name</th>
+  <th>Country</th>
+  <th>Time</th>
+  <th>Actions</th>
+</tr>
+
 <% @maps.each do |map| %>
 
-<div class="debug">
-  <%= debug (map) %>
-</div>
-
-<%= 'Name= ' +map.name %>
-<%= 'Country= '+map.country %>
-<%= 'Time= '+map.time %>
-
-<%= link_to 'show',map_path(map), :method => :get %>
-<%= link_to 'edit', edit_map_path(map), :method => :get %>
-<%= link_to 'delete', map_path(map), :data =>{:confirm=>"r u sure?"}, :method => :delete %>
-
+  <tr>
+    <td><%= map.name %></td>
+    <td><%= map.country %></td>
+    <td><%= map.time %></td>
+    <td>
+      <%= link_to 'show',map_path(map) %>
+      <%= link_to 'edit', edit_map_path(map) %>
+      <%= link_to 'delete', map_path(map), :data =>{:confirm=>"r u sure?"}, :method => :delete %>
+    </td>
+  </tr>
 <% end %>
-</li>
-</ul>
+</table>
 
-<%= link_to 'New Map', new_map_path, :method => :get %>
+<p><%= link_to 'New Map', new_map_path %></p>
+
+
+
+<%= paginate @maps %>
