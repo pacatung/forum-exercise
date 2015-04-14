@@ -4,6 +4,10 @@ class MapsController < ApplicationController
   before_action :set_map, :only => [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
 
+  def about
+
+  end
+
   def index
     @maps = Map.page(params[:page]).per(5)
   end
@@ -25,6 +29,14 @@ class MapsController < ApplicationController
 
   def show
     @page_title = @map.name
+
+
+    unless cookies["view-map-#{@map.id}"]
+      cookies["view-map-#{@map.id}"] = "true"
+      @map.view!
+    end
+
+    @comment = Comment.new
   end
 
   def edit

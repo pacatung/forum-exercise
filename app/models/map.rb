@@ -7,4 +7,11 @@ class Map < ActiveRecord::Base
      belongs_to :user
 
 
+  def view!
+    self.increment!(:views_count)
+  end
+
+  def author_name
+    user.try(:display_name) || "Nobody"
+  end
 end
