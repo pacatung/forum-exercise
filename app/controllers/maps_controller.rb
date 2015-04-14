@@ -50,7 +50,7 @@ class MapsController < ApplicationController
   private
 
   def map_params
-    params.require(:map).permit(:name, :country, :time, :money, :days, :description)
+    params.require(:map).permit(:name, :country, :time, :money, :days, :description, :user_name)
   end
 
   def set_map
