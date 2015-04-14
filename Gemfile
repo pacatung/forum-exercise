@@ -39,3 +39,17 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 gem 'kaminari'
 
+#for heroku
+gem 'pg'
+gem 'rails_12factor', group: :production
+
+#user login
+gem 'devise'
+
+group :development, :test do
+# Use sqlite3 as the database for Active Record
+gem 'sqlite3'
+end
+
+
+

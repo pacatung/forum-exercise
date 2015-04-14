@@ -80,4 +80,7 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # gem 'Devise' 編輯 config/environments/development.rb 和 production.rb 加入寄信時預設的網站網址：
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 end

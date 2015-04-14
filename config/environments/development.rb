@@ -34,4 +34,7 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  # gem 'Devise' 編輯 config/environments/development.rb 和 production.rb 加入寄信時預設的網站網址：
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 end
