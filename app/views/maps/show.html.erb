@@ -1,6 +1,5 @@
+<div class="container">
 <h1>Maps show html  <%=@map.name%></h1>
-
-
 <%= 'name= ' + @map.name %>
 <br>
 <%= 'country= ' +  @map.country %>
@@ -13,13 +12,19 @@
 <br>
 <%#= "description= #{simple_format(@map.description)}" %>
 <%= "description="+ @map.description %>
-<br>
-<br>
-<br>
-<br>
-<%= link_to 'Back to Maps index.html.erb', maps_path %>
-
+<br><br>
+<%= link_to 'Back to Maps index.html.erb', maps_path, :class => "btn btn-primary" %>
+</div>
 <hr>
+
+
+<div class="container">
+<p>
+<% @map.categories.each do |m| %>
+  <%= m.name %>
+<% end %>
+</p>
+
 
 <% @map.comments.each do |comment| %>
 
@@ -49,6 +54,6 @@
 
 <% end %>
 
-
+</div>
 
 

@@ -6,6 +6,9 @@ class Map < ActiveRecord::Base
 
      belongs_to :user
 
+     has_many :map_categoryships
+     has_many :categories, :through => :map_categoryships
+
 
   def view!
     self.increment!(:views_count)

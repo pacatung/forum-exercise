@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150414113829) do
+ActiveRecord::Schema.define(version: 20150415022618) do
+
+  create_table "categories", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
+  end
 
   create_table "comments", force: true do |t|
     t.text     "content"
@@ -23,6 +29,16 @@ ActiveRecord::Schema.define(version: 20150414113829) do
 
   add_index "comments", ["map_id"], name: "index_comments_on_map_id"
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
+
+  create_table "map_categoryships", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "map_id"
+    t.integer  "category_id"
+  end
+
+  add_index "map_categoryships", ["category_id"], name: "index_map_categoryships_on_category_id"
+  add_index "map_categoryships", ["map_id"], name: "index_map_categoryships_on_map_id"
 
   create_table "maps", force: true do |t|
     t.string   "name"

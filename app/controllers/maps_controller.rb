@@ -9,7 +9,14 @@ class MapsController < ApplicationController
   end
 
   def index
-    @maps = Map.page(params[:page]).per(5)
+    if params[:cid]
+      category = Category.find(params[:cid])
+      @maps = category.maps
+    else
+      @maps = Map.all
+    end
+
+    @maps = Map.page(params[:page]).per(10)
   end
 
   def new
@@ -62,7 +69,7 @@ class MapsController < ApplicationController
   private
 
   def map_params
-    params.require(:map).permit(:name, :country, :time, :money, :days, :description, :user_name)
+    params.require(:map).permit(:name, :country, :time, :money, :days, :description, :user_name, :category_ids => [])
   end
 
   def set_map
