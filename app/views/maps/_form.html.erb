@@ -9,6 +9,11 @@
 <br>
 <br>
 <br>
+
+  <div class="form-group">
+    <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) %>
+  </div>
+
     <%= f.label :name, "Name" %>
     <%= f.text_field :name %>
     <br>
@@ -26,3 +31,4 @@
     <br>
     <%= f.label :description, "Description" %>
     <%= f.text_area :description %>
+

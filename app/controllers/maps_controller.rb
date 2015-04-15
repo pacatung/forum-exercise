@@ -66,10 +66,10 @@ class MapsController < ApplicationController
     redirect_to maps_path
   end
 
-  private
+  protected
 
   def map_params
-    params.require(:map).permit(:name, :country, :time, :money, :days, :description, :user_name, :category_ids => [])
+    params.require(:map).permit(:name, :country, :time, :money, :days, :description, :name, :category_ids => [])
   end
 
   def set_map
