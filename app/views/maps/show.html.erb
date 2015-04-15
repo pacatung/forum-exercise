@@ -4,21 +4,21 @@
 <br>
 <p>
 <% @map.categories.each do |m| %>
-  <%='Category='+ m.name %>
+Category=  <%= m.name %>
 <% end %>
 </p>
-<%= 'name= ' + @map.name %>
+name=<%= @map.name %>
 <br>
-<%= 'country= ' +  @map.country %>
+country=<%= @map.country %>
 <br>
-<%= 'time= ' +  @map.time %>
+time= <%= @map.time %>
 <br>
-<%= "money= #{@map.money}" %>
+money=<%= @map.money %>
 <br>
-<%= "days= #{@map.days}" %>
+days= <%= @map.days %>
 <br>
 <%#= "description= #{simple_format(@map.description)}" %>
-<%= "description="+ @map.description %>
+description= <%= @map.description %>
 <br><br>
 <%= link_to 'Back to Maps index.html.erb', maps_path, :class => "btn btn-primary" %>
 </div>
@@ -26,7 +26,7 @@
 
 
 <div class="container">
-<!-- <p><a href="#" id="comment-btn" class="btn btn-primary" color="yellow">Reply</a></p> -->
+<p><a href="#" id="comment-btn" class="btn btn-primary">Reply</a></p>
 <h2>Reply</h2>
 <div id="comment-form">
 
@@ -62,7 +62,7 @@
   <div class="media-left">
     <a href="#">
       <% if comment.user %>
-        <%#= user_avatar comment.user %>
+        <%= user_avatar comment.user %>
       <% end %>
     </a>
   </div>
@@ -80,8 +80,8 @@
   </div>
 </div>
 
-<% end %>
 
+<% end %>
 </div>
 
 

@@ -7,6 +7,11 @@ class User < ActiveRecord::Base
   has_many :maps
   has_many :comments
 
+  def gavatar_url
+    md5 = Digest::MD5.hexdigest(self.email.downcase)
+    "https://www.gravatar.com/avatar/#{md5}"
+  end
+
   def display_name
     self.user_name || self.email.split("@").first
   end

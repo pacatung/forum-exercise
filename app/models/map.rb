@@ -1,13 +1,13 @@
 class Map < ActiveRecord::Base
 
-     validates_presence_of :name, :country, :time
+  validates_presence_of :name, :country, :time
 
-     has_many :comments, :dependent => :destroy
+  has_many :comments, :dependent => :destroy
 
-     belongs_to :user
+  belongs_to :user
 
-     has_many :map_categoryships
-     has_many :categories, :through => :map_categoryships
+  has_many :map_categoryships
+  has_many :categories, :through => :map_categoryships
 
 
   def view!
@@ -17,4 +17,5 @@ class Map < ActiveRecord::Base
   def author_name
     user.try(:display_name) || "Nobody"
   end
+
 end

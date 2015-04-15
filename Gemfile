@@ -57,4 +57,7 @@ end
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 
+# 排序
+gem 'ransack'
+
 

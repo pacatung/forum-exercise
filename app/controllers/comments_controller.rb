@@ -3,10 +3,6 @@ class CommentsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_map
 
-  def new
-    @comment = Comment.new
-  end
-
   def create
     @comment = @map.comments.new(comment_params)
     @comment.user = current_user

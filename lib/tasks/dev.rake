@@ -3,7 +3,7 @@ namespace :dev do
   task :fake => :environment do
     puts "Fake data..."
 
-    # User.delete_all
+    User.delete_all
     Map.delete_all
     Comment.delete_all
 

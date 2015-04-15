@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+  resources :users
+
   resources :maps do
     resources :comments
   end

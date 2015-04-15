@@ -25,6 +25,7 @@ class MapsController < ApplicationController
 
   def create
     @map = Map.new(map_params)
+    @map.user = current_user
 
     if @map.save
       flash[:notice] = "Map was successfully created."

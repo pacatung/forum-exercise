@@ -10,21 +10,22 @@
   <th>Money</th>
   <th>Days</th>
   <th>Description</th>
+  <th>User</th>
   <th>Actions</th>
 </tr>
 
 <% @maps.each do |map| %>
 
   <tr>
-    <td><%= map.name %></td>
+    <td><%= link_to map.name, map_path(map) %></td>
     <td><%= map.country %></td>
     <td><%= map.time %></td>
     <td><%= map.money %></td>
     <td><%= map.days %></td>
     <td><%= map.description %></td>
+    <td><%= map.user.try(:display_name) %></td>
 
     <td>
-      <%= link_to 'show',map_path(map) %>
       <%= link_to 'edit', edit_map_path(map) %>
       <%= link_to 'delete', map_path(map), :data =>{:confirm=>"r u sure?"}, :method => :delete %>
     </td>
