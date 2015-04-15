@@ -1,5 +1,12 @@
 <div class="container">
 <h1>Maps show html  <%=@map.name%></h1>
+<br>
+<br>
+<p>
+<% @map.categories.each do |m| %>
+  <%='Category='+ m.name %>
+<% end %>
+</p>
 <%= 'name= ' + @map.name %>
 <br>
 <%= 'country= ' +  @map.country %>
@@ -19,11 +26,32 @@
 
 
 <div class="container">
-<p>
-<% @map.categories.each do |m| %>
-  <%= m.name %>
+<!-- <p><a href="#" id="comment-btn" class="btn btn-primary" color="yellow">Reply</a></p> -->
+<h2>Reply</h2>
+<div id="comment-form">
+
+<%= form_for [@map, @comment] do |f| %>
+
+  <% if @comment.errors.any? %>
+    <ul>
+      <% @comment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.text_area :content, :rows => 5, :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit :class => "btn btn-primary" %>
+  </div>
+
 <% end %>
-</p>
+
+</div>
+
 
 
 <% @map.comments.each do |comment| %>
@@ -34,7 +62,7 @@
   <div class="media-left">
     <a href="#">
       <% if comment.user %>
-        <%= user_avatar comment.user %>
+        <%#= user_avatar comment.user %>
       <% end %>
     </a>
   </div>
@@ -45,7 +73,7 @@
       <%= comment.created_at.to_s(:short) %>
 
       <% if comment.can_delete_by?(current_user) %>
-      <%= link_to "Delete", topic_comment_path(@topic, comment), :method => :delete, :data => { :confirm => "Are you sure?"} %>
+      <%= link_to "Delete", map_comment_path(@map, comment), :method => :delete, :data => { :confirm => "Are you sure?"} %>
       <% end %>
 
     </p>
